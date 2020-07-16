@@ -1,0 +1,4 @@
+1001,Midhun,23,Developer,2,25000
+1002,Ben,23,Developer,2,30000
+1003,Joju,25,Sales,4,35000
+1004,Joys,34,Senior Manager,14,57000

@@ -1,1 +1,6 @@
 Midhun Benny
+Git addition
+git clone path
+git add -A
+git commit -m"message"
+git push

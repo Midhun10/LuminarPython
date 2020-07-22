@@ -1,0 +1,21 @@
+# 3.write valid mails into a new file
+import re
+f1=open("employee","r")
+f2=open("rightemail","w")
+emid=[]
+for lines in f1:
+    employee = lines.rstrip("\n").split(",")
+    email=employee[3]
+    emid.append(email)
+print(emid)
+
+for data in emid:
+    pattern='[a-zA-z]\w.*[_]*\w*[.]*@[a-z]*[.][a-z]{3}'
+    match=re.fullmatch(pattern,data)
+
+    if(match!=None):
+        f2.write(data+"\n")
+    else:
+        print("Non email found:",data)
+
+

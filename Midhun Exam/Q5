@@ -1,0 +1,2 @@
+select edesig,count(edesig) as DesigCount from ExamEmp group by edesig;
+

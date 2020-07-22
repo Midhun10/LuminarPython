@@ -1,0 +1,1 @@
+LOAD DATA LOCAL INFILE '/home/dell/Downloads/Luminar Python/employee' INTO TABLE ExamEmp FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n';

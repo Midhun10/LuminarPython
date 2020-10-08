@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'storeadmin/index.html' %}
+{% block body_block %}
+<div class="container">
+    <h1>View Aircraft</h1>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{view.Aircraft_name}} : {{view.Aircraft_model}}</h5>
+    <p class="card-text">Manufactured by {{view.Aircraft_manufacture}} with a range of {{view.Aircraft_range}} powered by {{view.Aircraft_engine}} engines. With a ceiling of {{view.Aircraft_ceiling}} Alt. The aircraft spans {[view.Aircraft_length}} in length.</p>
+    <p class="card-text"><small class="text-muted">Price starts at {{view.Aircraft_price}}</small></p>
+  </div>
+  <img src="{{view.image.url}}" class="card-img-bottom" alt="{{view.Aircraft_model}}">
+</div>
+            </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{% endblock %}

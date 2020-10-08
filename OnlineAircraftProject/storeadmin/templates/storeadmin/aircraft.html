@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'storeadmin/index.html' %}
+
+{% block body_block %}
+<div class="container">
+<h1>Aircraft</h1>
+    <div class="row">
+        <div class="col-6">
+            <form method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+                 {{form.as_p}}
+                 <input type="submit" value="Create" class="btn btn-outline-success">
+            </form>
+        </div>
+        <div class="col-6">
+            </div>
+    </div>
+</div>
+<hr>
+            <table  class="table table-striped centre">
+    <tr>
+        <td>Manufacture_name</td>
+        <td>Aircraft_name</td>
+        <td>Aircraft_model</td>
+        <td>Ceiling Alt</td>
+        <td>Range</td>
+        <td>Engine</td>
+        <td>Price</td>
+        <td>Image</td>
+        <td>ACTION</td>
+        <td></td>
+        <td></td>
+    </tr>
+    {% for item in aircraft %}
+    <tr>
+        <td>{{item.Aircraft_manufacture}}</td>
+        <td>{{item.Aircraft_name}}</td>
+        <td>{{item.Aircraft_model}}</td>
+        <td>{{item.Aircraft_ceiling}}</td>
+        <td>{{item.Aircraft_range}}</td>
+        <td>{{item.Aircraft_engine}}</td>
+        <td>{{item.Aircraft_price}}</td>
+        <td>{{item.image.url}}</td>
+        <td><a href="{% url 'editaircraft' item.id %}" class="btn btn-success">Edit</a> </td>
+        <td><a href="{% url 'viewaircraft' item.id %}" class="btn btn-secondary">View</a> </td>
+        <td><a href="{% url 'deleteaircraft' item.id %}" class="btn btn-danger">Delete</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'storeadmin/index.html' %}
+
+{% block body_block %}
+<div class="container">
+<h1>Manufacture</h1>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <form method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+                 {{form.as_p}}
+                 <input type="submit" value="Create" class="btn btn-outline-success">
+            </form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<hr>
+<table  class="table table-striped centre">
+    <tr>
+        <td>Manufacture_Name</td>
+        <td>Manufacture_Logo</td>
+        <td>ACTION</td>
+        <td></td>
+        <td></td>
+    </tr>
+    {% for item in manufacture %}
+    <tr>
+        <td>{{item.Manufacture_name}}</td>
+        <td><img src="{{item.Manufacture_image}}"></td>
+        <td><a href="{% url 'editmanufacture' item.id %}" class="btn btn-success">Edit</a> </td>
+        <td><a href="{% url 'viewmanufacture' item.id %}" class="btn btn-secondary">View</a> </td>
+        <td><a href="{% url 'deletemanufacture' item.id %}" class="btn btn-danger">Delete</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
